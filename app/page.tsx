@@ -216,7 +216,7 @@ export default function Home() {
               <Link href="/contact" className="btn btn-orange" style={{ marginTop: '2rem', display: 'inline-flex' }}>Obtenir un devis gratuit →</Link>
             </div>
             <div className="content-visual">
-              <Image src="/logo.png" alt="Groupe OG" width={320} height={200} style={{ objectFit: 'contain', position: 'relative', zIndex: 1, filter: 'drop-shadow(0 4px 24px rgba(0,0,0,.6))' }} />
+              <Image src="/logo.png" alt="Groupe OG" width={320} height={200} style={{ objectFit: 'contain', position: 'relative', zIndex: 1, mixBlendMode: 'screen' }} />
             </div>
           </div>
         </div>
