@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import ScrollTop from '@/components/ScrollTop'
 
 export const metadata: Metadata = {
-  title: 'GROUPE OG – Facility Management & Maintenance Multitechnique',
-  description: 'GROUPE OG, partenaire stratégique en Facility Management pour grandes entreprises et institutionnels. ISO 41001, Smart Building, maintenance prédictive, ESG. Solutions FM globales à Nice et PACA.',
+  title: 'GROUPE OG — BTP · Propreté · Immobilier | Rayonnement National',
+  description: 'Groupe OG, expert national en BTP, Propreté et Immobilier. Construction, rénovation, nettoyage industriel, gestion locative. Siège social à Nice (06300), intervention sur toute la France.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -7,75 +8,77 @@ import { useState } from 'react'
 export default function Navbar() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [dropdown1Open, setDropdown1Open] = useState(false)
-  const [dropdown2Open, setDropdown2Open] = useState(false)
+  const [dd1, setDd1] = useState(false)
+  const [dd2, setDd2] = useState(false)
+  const [dd3, setDd3] = useState(false)
 
   function isActive(href: string) {
     return pathname === href ? 'active' : ''
+  }
+  function closeAll() {
+    setMenuOpen(false); setDd1(false); setDd2(false); setDd3(false)
   }
 
   return (
     <nav id="navbar">
       <div className="nav-container">
         <Link href="/" className="nav-logo">
-          <div className="logo-icon">🏢</div>
-          GROUPE<span>OG</span>
+          <Image src="/logo.png" alt="Groupe OG" width={130} height={52} className="nav-logo-img" priority />
         </Link>
 
         <ul className={`nav-menu${menuOpen ? ' open' : ''}`}>
           <li className="nav-item">
-            <Link href="/" className={`nav-link ${isActive('/')}`} onClick={() => setMenuOpen(false)}>
-              Accueil
-            </Link>
+            <Link href="/" className={`nav-link ${isActive('/')}`} onClick={closeAll}>Accueil</Link>
           </li>
 
+          {/* BTP */}
           <li className="nav-item nav-item-mega">
-            <a
-              href="#"
-              className="nav-link"
-              onClick={(e) => { e.preventDefault(); setDropdown1Open(!dropdown1Open); setDropdown2Open(false) }}
-            >
-              FM Externalisé <span className="arrow">▾</span>
+            <a href="#" className="nav-link"
+              onClick={e => { e.preventDefault(); setDd1(!dd1); setDd2(false); setDd3(false) }}>
+              BTP <span className="arrow">▾</span>
             </a>
-            <div className="dropdown" style={menuOpen ? { opacity: dropdown1Open ? '1' : undefined, visibility: dropdown1Open ? 'visible' : 'hidden' } : {}}>
-              <Link href="/immobilier" onClick={() => setMenuOpen(false)}><span className="dd-icon">🏙️</span> Gestion Immobilière</Link>
-              <Link href="/services-generaux" onClick={() => setMenuOpen(false)}><span className="dd-icon">🗂️</span> Services Généraux</Link>
-              <Link href="/securite-surete" onClick={() => setMenuOpen(false)}><span className="dd-icon">🛡️</span> Sécurité &amp; Sûreté</Link>
-              <Link href="/espaces-verts" onClick={() => setMenuOpen(false)}><span className="dd-icon">🌿</span> Espaces Verts</Link>
+            <div className={`dropdown btp-dd${menuOpen && dd1 ? ' open-mobile' : ''}`}>
+              <Link href="/gros-oeuvres" onClick={closeAll}><span className="dd-icon">🏛️</span> Gros Œuvres &amp; Maçonnerie</Link>
+              <Link href="/seconds-oeuvres" onClick={closeAll}><span className="dd-icon">🔨</span> Seconds Œuvres &amp; Finitions</Link>
+              <Link href="/plomberie-chauffage" onClick={closeAll}><span className="dd-icon">🔧</span> Plomberie &amp; CVC</Link>
+              <Link href="/electricite" onClick={closeAll}><span className="dd-icon">⚡</span> Électricité &amp; GTB</Link>
+              <Link href="/photovoltaique" onClick={closeAll}><span className="dd-icon">☀️</span> Énergie Solaire</Link>
             </div>
           </li>
 
+          {/* PROPRETÉ */}
           <li className="nav-item nav-item-mega">
-            <a
-              href="#"
-              className="nav-link"
-              onClick={(e) => { e.preventDefault(); setDropdown2Open(!dropdown2Open); setDropdown1Open(false) }}
-            >
-              Maintenance Technique <span className="arrow">▾</span>
+            <a href="#" className="nav-link"
+              onClick={e => { e.preventDefault(); setDd2(!dd2); setDd1(false); setDd3(false) }}>
+              Propreté <span className="arrow">▾</span>
             </a>
-            <div className="dropdown" style={menuOpen ? { opacity: dropdown2Open ? '1' : undefined, visibility: dropdown2Open ? 'visible' : 'hidden' } : {}}>
-              <Link href="/gros-oeuvres" onClick={() => setMenuOpen(false)}><span className="dd-icon">🏛️</span> Gros Œuvres &amp; Maçonnerie</Link>
-              <Link href="/seconds-oeuvres" onClick={() => setMenuOpen(false)}><span className="dd-icon">🔨</span> Seconds Œuvres &amp; Finitions</Link>
-              <Link href="/plomberie-chauffage" onClick={() => setMenuOpen(false)}><span className="dd-icon">🔧</span> Plomberie &amp; CVC</Link>
-              <Link href="/electricite" onClick={() => setMenuOpen(false)}><span className="dd-icon">⚡</span> Électricité &amp; GTB</Link>
-              <Link href="/photovoltaique" onClick={() => setMenuOpen(false)}><span className="dd-icon">☀️</span> Énergie Solaire</Link>
-              <Link href="/nettoyage" onClick={() => setMenuOpen(false)}><span className="dd-icon">🧹</span> Propreté &amp; Nettoyage</Link>
+            <div className={`dropdown prop-dd${menuOpen && dd2 ? ' open-mobile' : ''}`}>
+              <Link href="/nettoyage" onClick={closeAll}><span className="dd-icon">🧹</span> Nettoyage &amp; Hygiène</Link>
+              <Link href="/espaces-verts" onClick={closeAll}><span className="dd-icon">🌿</span> Espaces Verts</Link>
+            </div>
+          </li>
+
+          {/* IMMOBILIER */}
+          <li className="nav-item nav-item-mega">
+            <a href="#" className="nav-link"
+              onClick={e => { e.preventDefault(); setDd3(!dd3); setDd1(false); setDd2(false) }}>
+              Immobilier <span className="arrow">▾</span>
+            </a>
+            <div className={`dropdown immo-dd${menuOpen && dd3 ? ' open-mobile' : ''}`}>
+              <Link href="/immobilier" onClick={closeAll}><span className="dd-icon">🏢</span> Gestion Immobilière</Link>
+              <Link href="/services-generaux" onClick={closeAll}><span className="dd-icon">🗂️</span> Services Généraux</Link>
+              <Link href="/securite-surete" onClick={closeAll}><span className="dd-icon">🛡️</span> Sécurité &amp; Sûreté</Link>
             </div>
           </li>
 
           <li className="nav-item">
-            <Link href="/contact" className={`nav-link ${isActive('/contact')}`} onClick={() => setMenuOpen(false)}>
-              Contact
-            </Link>
+            <Link href="/contact" className={`nav-link ${isActive('/contact')}`} onClick={closeAll}>Contact</Link>
           </li>
         </ul>
 
-        <Link href="/contact" className="btn btn-gold nav-cta">Audit gratuit</Link>
+        <Link href="/contact" className="btn btn-orange nav-cta">Devis gratuit</Link>
 
-        <div
-          className={`hamburger${menuOpen ? ' open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+        <div className={`hamburger${menuOpen ? ' open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
           <span></span><span></span><span></span>
         </div>
       </div>

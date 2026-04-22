@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import Counter from '@/components/Counter'
 
 export const metadata: Metadata = {
-  title: 'GROUPE OG – Facility Management & Maintenance Multitechnique',
-  description: 'GROUPE OG, partenaire stratégique en Facility Management pour grandes entreprises et institutionnels. ISO 41001, Smart Building, maintenance prédictive, ESG.',
+  title: 'GROUPE OG — BTP · Propreté · Immobilier | Rayonnement National',
+  description: 'Groupe OG, expert national en BTP, Propreté et Immobilier. Construction, rénovation, nettoyage industriel, gestion locative. Siège social à Nice (06300), intervention sur toute la France.',
 }
 
 export default function Home() {
@@ -12,57 +13,187 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg-pattern"></div>
-        <div className="hero-bg-lines"></div>
         <div className="hero-container">
           <div className="hero-text">
-            <div className="hero-tag">Partenaire stratégique FM — Grands Comptes &amp; Institutionnels</div>
-            <h1 className="hero-title">L&apos;excellence opérationnelle de vos <em>bâtiments</em>, notre engagement</h1>
-            <p className="hero-desc">GROUPE OG délivre des solutions de Facility Management intégrées aux standards ISO 41001. Un partenaire unique pour la gestion technique, immobilière et des services généraux de votre patrimoine.</p>
+            <div className="hero-tag">Siège social Nice · Intervention nationale</div>
+            <h1 className="hero-title">
+              Bâtissons.<br />
+              <em>Entretenons.</em><br />
+              <span className="line2">Valorisons.</span>
+            </h1>
+            <p className="hero-desc">GROUPE OG est votre partenaire de confiance en BTP, Propreté et Immobilier. De la construction à la gestion de patrimoine, nous intervenons sur toute la France depuis notre siège à Nice.</p>
             <div className="hero-btns">
-              <Link href="/contact" className="btn btn-gold">Demander un audit stratégique →</Link>
-              <a href="#services" className="btn btn-outline-white">Nos expertises</a>
+              <Link href="/contact" className="btn btn-orange">Demander un devis gratuit →</Link>
+              <a href="#poles" className="btn btn-outline-white">Nos expertises</a>
             </div>
             <div className="hero-stats">
               <div className="stat">
-                <Counter count={350} suffix="+" className="stat-num" />
-                <span className="stat-label">Sites sous gestion</span>
+                <Counter count={20} suffix=" ans" className="stat-num" />
+                <span className="stat-label">D&apos;expertise</span>
               </div>
               <div className="stat">
-                <Counter count={15} suffix=" ans" className="stat-num" />
-                <span className="stat-label">D&apos;expertise FM</span>
+                <Counter count={500} suffix="+" className="stat-num" />
+                <span className="stat-label">Projets réalisés</span>
+              </div>
+              <div className="stat">
+                <Counter count={50} suffix="+" className="stat-num" />
+                <span className="stat-label">Villes couvertes</span>
               </div>
               <div className="stat">
                 <Counter count={98} suffix="%" className="stat-num" />
-                <span className="stat-label">Taux de satisfaction SLA</span>
-              </div>
-              <div className="stat">
-                <Counter count={40} suffix="%" className="stat-num" />
-                <span className="stat-label">Réduction TCO moyen</span>
+                <span className="stat-label">Satisfaction client</span>
               </div>
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="hero-card">
-              <div className="card-icon">🏢</div>
-              <h4>Facility Management Intégré</h4>
-              <p style={{ color: 'rgba(255,255,255,.65)', fontSize: '.85rem', margin: '.5rem 0 0' }}>Hard FM · Soft FM · Property Management</p>
+
+          <div className="hero-poles">
+            <Link href="/gros-oeuvres" className="hero-pole-card btp">
+              <div className="pole-icon-sm">🏗️</div>
+              <div>
+                <h4>BTP</h4>
+                <p>Construction · Rénovation · Électricité · CVC</p>
+              </div>
+              <span className="pole-arrow">→</span>
+            </Link>
+            <Link href="/nettoyage" className="hero-pole-card prop">
+              <div className="pole-icon-sm">✨</div>
+              <div>
+                <h4>Propreté</h4>
+                <p>Nettoyage industriel · Entretien · Espaces verts</p>
+              </div>
+              <span className="pole-arrow">→</span>
+            </Link>
+            <Link href="/immobilier" className="hero-pole-card immo">
+              <div className="pole-icon-sm">🏢</div>
+              <div>
+                <h4>Immobilier</h4>
+                <p>Gestion locative · Transaction · Conseil</p>
+              </div>
+              <span className="pole-arrow">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <div className="stats-bar">
+        <div className="stats-bar-grid">
+          <div className="stat-item">
+            <Counter count={20} suffix=" ans" className="stat-num stat-accent" />
+            <span className="stat-label">d&apos;expertise sur le terrain</span>
+          </div>
+          <div className="stat-item">
+            <Counter count={500} suffix="+" className="stat-num stat-accent" />
+            <span className="stat-label">projets livrés en France</span>
+          </div>
+          <div className="stat-item">
+            <Counter count={50} suffix="+" className="stat-num stat-accent" />
+            <span className="stat-label">villes d&apos;intervention</span>
+          </div>
+          <div className="stat-item">
+            <Counter count={98} suffix="%" className="stat-num stat-accent" />
+            <span className="stat-label">taux de satisfaction client</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 3 PÔLES */}
+      <section className="section" id="poles">
+        <div className="container">
+          <div className="section-header">
+            <div className="eyebrow">Nos 3 pôles d&apos;expertise</div>
+            <h2>Un groupe, trois expertises complémentaires</h2>
+            <p>Groupe OG intervient sur l&apos;ensemble du cycle de vie de vos bâtiments et actifs, de la construction à la valorisation en passant par l&apos;entretien quotidien.</p>
+          </div>
+          <div className="poles-grid">
+
+            <div className="pole-card btp-card">
+              <div className="pole-card-header">
+                <div className="pole-card-icon">🏗️</div>
+                <h3>BTP</h3>
+                <p>Construction, rénovation et maintenance technique de vos bâtiments</p>
+                <span className="pole-badge">Bâtiment &amp; Travaux Publics</span>
+              </div>
+              <div className="pole-card-body">
+                <ul className="pole-services">
+                  <li>Gros œuvres &amp; maçonnerie</li>
+                  <li>Seconds œuvres &amp; finitions</li>
+                  <li>Plomberie &amp; CVC</li>
+                  <li>Électricité &amp; domotique</li>
+                  <li>Énergie solaire &amp; performance</li>
+                </ul>
+                <Link href="/gros-oeuvres" className="pole-cta">
+                  <span>Découvrir le pôle BTP</span><span>→</span>
+                </Link>
+              </div>
             </div>
-            <div className="hero-card">
-              <div className="card-icon">📡</div>
-              <h4>Smart Building</h4>
-              <p style={{ color: 'rgba(255,255,255,.65)', fontSize: '.85rem', margin: '.5rem 0 0' }}>GTB · GMAO · IoT · Digital Twin</p>
+
+            <div className="pole-card prop-card">
+              <div className="pole-card-header">
+                <div className="pole-card-icon">✨</div>
+                <h3>Propreté</h3>
+                <p>Nettoyage professionnel, hygiène et entretien de vos espaces</p>
+                <span className="pole-badge">Nettoyage &amp; Environnement</span>
+              </div>
+              <div className="pole-card-body">
+                <ul className="pole-services">
+                  <li>Nettoyage industriel &amp; tertiaire</li>
+                  <li>Entretien quotidien &amp; périodique</li>
+                  <li>Désinfection &amp; protocoles RABC</li>
+                  <li>Vitrerie &amp; nettoyage en hauteur</li>
+                  <li>Espaces verts &amp; aménagement paysager</li>
+                </ul>
+                <Link href="/nettoyage" className="pole-cta">
+                  <span>Découvrir le pôle Propreté</span><span>→</span>
+                </Link>
+              </div>
             </div>
-            <div className="hero-card">
-              <div className="card-icon">🌿</div>
-              <h4>ESG &amp; RSE</h4>
-              <p style={{ color: 'rgba(255,255,255,.65)', fontSize: '.85rem', margin: '.5rem 0 0' }}>Bilan carbone · BREEAM · Zéro déchet</p>
+
+            <div className="pole-card immo-card">
+              <div className="pole-card-header">
+                <div className="pole-card-icon">🏢</div>
+                <h3>Immobilier</h3>
+                <p>Gestion, transaction et valorisation de votre patrimoine immobilier</p>
+                <span className="pole-badge">Gestion &amp; Patrimoine</span>
+              </div>
+              <div className="pole-card-body">
+                <ul className="pole-services">
+                  <li>Gestion locative &amp; property management</li>
+                  <li>Transaction &amp; conseil immobilier</li>
+                  <li>Services généraux &amp; facility</li>
+                  <li>Sécurité &amp; sûreté des biens</li>
+                  <li>Audit patrimonial &amp; optimisation</li>
+                </ul>
+                <Link href="/immobilier" className="pole-cta">
+                  <span>Découvrir le pôle Immobilier</span><span>→</span>
+                </Link>
+              </div>
             </div>
-            <div className="hero-card">
-              <div className="card-icon">📊</div>
-              <h4>Reporting Exécutif</h4>
-              <p style={{ color: 'rgba(255,255,255,.65)', fontSize: '.85rem', margin: '.5rem 0 0' }}>KPIs · SLA · Dashboard temps réel</p>
+
+          </div>
+        </div>
+      </section>
+
+      {/* PRÉSENCE NATIONALE */}
+      <section className="national-section">
+        <div className="national-grid">
+          <div>
+            <div className="eyebrow">Rayonnement national</div>
+            <h2>Ancrage méditerranéen, portée nationale</h2>
+            <p>Depuis notre siège social à Nice, les équipes Groupe OG interviennent sur l&apos;ensemble du territoire français. Réactivité et proximité d&apos;un acteur local, capacité d&apos;un groupe national.</p>
+            <div className="check-list">
+              <div className="check-item"><span>Siège social : 50 bd Stalingrad, 06300 Nice</span></div>
+              <div className="check-item"><span>Intervention sur toute la France métropolitaine</span></div>
+              <div className="check-item"><span>Délai d&apos;intervention : 24 à 48h selon la priorité</span></div>
+              <div className="check-item"><span>Astreinte disponible 24h/24, 7j/7</span></div>
             </div>
+            <Link href="/contact" className="btn btn-navy" style={{ marginTop: '2rem', display: 'inline-flex' }}>Nous contacter →</Link>
+          </div>
+          <div className="national-map">
+            <div className="map-item"><div className="map-icon">📍</div><div><h4>Siège social</h4><p>50 boulevard Stalingrad, 06300 Nice</p></div></div>
+            <div className="map-item"><div className="map-icon">🗺️</div><div><h4>Zone d&apos;intervention</h4><p>France métropolitaine entière</p></div></div>
+            <div className="map-item"><div className="map-icon">⚡</div><div><h4>Réactivité</h4><p>24–48h · Urgences 24h/24</p></div></div>
+            <div className="map-item"><div className="map-icon">📞</div><div><h4>Téléphone</h4><p>07 69 25 22 96</p></div></div>
           </div>
         </div>
       </section>
@@ -72,259 +203,72 @@ export default function Home() {
         <div className="container">
           <div className="two-col">
             <div>
-              <div className="eyebrow">Notre proposition de valeur</div>
-              <h2>Un partenaire FM stratégique, pas un simple prestataire</h2>
-              <p>Le Facility Management représente en moyenne 15 à 20 % des charges d&apos;exploitation d&apos;une organisation. GROUPE OG vous aide à transformer ce centre de coûts en levier de performance, de durabilité et d&apos;attractivité pour vos collaborateurs.</p>
-              <p>Conformément au référentiel ISO 41001, nous alignons nos prestations FM sur vos objectifs stratégiques : maîtrise du TCO, conformité réglementaire, objectifs ESG et expérience workplace de vos équipes.</p>
+              <div className="eyebrow">Pourquoi Groupe OG</div>
+              <h2>Un partenaire unique pour tous vos besoins</h2>
+              <p>En choisissant Groupe OG, vous bénéficiez d&apos;un interlocuteur unique qui maîtrise l&apos;ensemble du cycle de vie de vos bâtiments. Plus de coordination entre prestataires : une seule équipe, une seule responsabilité.</p>
               <div className="check-list">
-                <div className="check-item"><span>Contrat-cadre unique — interlocuteur FM dédié niveau directorial</span></div>
-                <div className="check-item"><span>GMAO et reporting exécutif en temps réel — visibilité totale</span></div>
-                <div className="check-item"><span>Maintenance prédictive par capteurs IoT — zéro panne non anticipée</span></div>
-                <div className="check-item"><span>SLA contractuels garantis avec pénalités — engagement de résultat</span></div>
-                <div className="check-item"><span>Plan de réduction du TCO sur 3 ans — ROI mesurable</span></div>
+                <div className="check-item"><span>Expertise pluridisciplinaire BTP + Propreté + Immobilier</span></div>
+                <div className="check-item"><span>Équipes qualifiées, certifiées et expérimentées</span></div>
+                <div className="check-item"><span>Devis gratuit et transparent sous 48h</span></div>
+                <div className="check-item"><span>Suivi de chantier et reporting régulier</span></div>
+                <div className="check-item"><span>Garantie décennale et assurances professionnelles</span></div>
               </div>
-              <Link href="/contact" className="btn btn-navy" style={{ marginTop: '2rem', display: 'inline-block' }}>Planifier un rendez-vous stratégique →</Link>
+              <Link href="/contact" className="btn btn-orange" style={{ marginTop: '2rem', display: 'inline-flex' }}>Obtenir un devis gratuit →</Link>
             </div>
-            <div className="content-visual" style={{ background: 'linear-gradient(135deg,var(--navy),var(--navy-mid))', color: 'var(--gold)', fontSize: '5rem' }}>🏢</div>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS IMPACT */}
-      <section className="section section-dark">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow" style={{ color: 'var(--gold)' }}>Impact mesurable</div>
-            <h2 style={{ color: 'white' }}>Les résultats que nous livrons</h2>
-            <p style={{ color: 'rgba(255,255,255,.65)' }}>Des indicateurs concrets issus de nos contrats grands comptes en cours.</p>
-          </div>
-          <div className="cards-grid cards-grid-4">
-            <div className="stat-card">
-              <Counter count={40} suffix="%" className="stat-num" />
-              <span className="stat-label">Réduction moyenne des coûts d&apos;exploitation (TCO) sur 3 ans</span>
-            </div>
-            <div className="stat-card">
-              <Counter count={99} suffix="%" className="stat-num" />
-              <span className="stat-label">Disponibilité des équipements critiques garantie contractuellement</span>
-            </div>
-            <div className="stat-card">
-              <Counter count={2} suffix="h" className="stat-num" />
-              <span className="stat-label">Délai d&apos;intervention maximal sur incidents priorité 1 (P1)</span>
-            </div>
-            <div className="stat-card">
-              <Counter count={30} suffix="%" className="stat-num" />
-              <span className="stat-label">Diminution de l&apos;empreinte carbone des bâtiments gérés</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FM EXTERNALISÉ */}
-      <section className="section section-light" id="services">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow">Soft FM &amp; Gestion de patrimoine</div>
-            <h2>FM Externalisé — Pilotage global de votre actif</h2>
-            <p>De la gestion d&apos;actifs immobiliers à la sécurité des personnes, externalisez l&apos;intégralité de votre chaîne de valeur FM avec un partenaire unique responsable.</p>
-          </div>
-          <div className="cards-grid cards-grid-4">
-            <Link href="/immobilier" className="feature-card-dark" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-              <div className="feature-icon" style={{ color: 'var(--gold)' }}>🏙️</div>
-              <h3>Gestion Immobilière</h3>
-              <p>Property &amp; Asset Management, baux commerciaux, due diligence technique, PPPT, transaction et conseil en immobilier d&apos;entreprise.</p>
-              <span style={{ color: 'var(--navy)', fontWeight: 700, fontSize: '.88rem', display: 'block', marginTop: '1.25rem' }}>Découvrir l&apos;offre →</span>
-            </Link>
-            <Link href="/services-generaux" className="feature-card-dark" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-              <div className="feature-icon" style={{ color: 'var(--gold)' }}>🗂️</div>
-              <h3>Services Généraux</h3>
-              <p>Accueil corporate, reprographie, restauration d&apos;entreprise, conciergerie, helpdesk FM, achats indirects et workplace management.</p>
-              <span style={{ color: 'var(--navy)', fontWeight: 700, fontSize: '.88rem', display: 'block', marginTop: '1.25rem' }}>Découvrir l&apos;offre →</span>
-            </Link>
-            <Link href="/securite-surete" className="feature-card-dark" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-              <div className="feature-icon" style={{ color: 'var(--gold)' }}>🛡️</div>
-              <h3>Sécurité &amp; Sûreté</h3>
-              <p>Gardiennage, contrôle d&apos;accès biométrique, vidéoprotection IP, SSIAP — délivré par <strong style={{ color: 'var(--gold)' }}>Imperium Security Services</strong>, filiale du groupe.</p>
-              <span style={{ color: 'var(--navy)', fontWeight: 700, fontSize: '.88rem', display: 'block', marginTop: '1.25rem' }}>Découvrir l&apos;offre →</span>
-            </Link>
-            <Link href="/espaces-verts" className="feature-card-dark" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-              <div className="feature-icon" style={{ color: 'var(--gold)' }}>🌿</div>
-              <h3>Espaces Verts &amp; RSE</h3>
-              <p>Entretien paysager, toitures végétalisées, programme biodiversité, label EcoJardin, bilan carbone et reporting RSE mensuel.</p>
-              <span style={{ color: 'var(--navy)', fontWeight: 700, fontSize: '.88rem', display: 'block', marginTop: '1.25rem' }}>Découvrir l&apos;offre →</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* MAINTENANCE TECHNIQUE */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow">Hard FM — Maintenance multitechnique</div>
-            <h2>Expertise technique intégrée, 24h/24</h2>
-            <p>Nos ingénieurs et techniciens qualifiés assurent la disponibilité et la conformité de toutes les installations techniques de votre patrimoine.</p>
-          </div>
-          <div className="cards-grid cards-grid-3">
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#0d1e3a,#1a3a6e)' }}>🏛️</div>
-              <div className="service-card-body">
-                <h3>Gros Œuvres &amp; Maçonnerie</h3>
-                <p>Travaux structurels, réhabilitation lourde, extensions et fondations. Maintien en conformité du bâti et travaux neufs sur sites occupés.</p>
-                <Link href="/gros-oeuvres" className="service-card-link">En savoir plus →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#0d2a1a,#1a4a2e)' }}>🔨</div>
-              <div className="service-card-body">
-                <h3>Seconds Œuvres &amp; Finitions</h3>
-                <p>Réaménagement d&apos;espaces, cloisons modulaires, revêtements, menuiseries et peinture. Requalification et rénovation des environnements de travail.</p>
-                <Link href="/seconds-oeuvres" className="service-card-link">En savoir plus →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#0d2a3a,#1a4a6e)' }}>🔧</div>
-              <div className="service-card-body">
-                <h3>Plomberie &amp; CVC</h3>
-                <p>Maintenance préventive et curative des réseaux sanitaires, systèmes de chauffage, ventilation et climatisation. Conformité R410A et F-Gaz.</p>
-                <Link href="/plomberie-chauffage" className="service-card-link">En savoir plus →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#2a1e0a,#7a5a1a)' }}>⚡</div>
-              <div className="service-card-body">
-                <h3>Électricité &amp; GTB</h3>
-                <p>Maintenance HTA/BT, gestion technique du bâtiment (GTB/BMS), courants faibles, mise aux normes NF C 15-100 et cybersécurité des automates.</p>
-                <Link href="/electricite" className="service-card-link">En savoir plus →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#2a1a0a,#8a4a1a)' }}>☀️</div>
-              <div className="service-card-body">
-                <h3>Énergie Solaire &amp; Performance</h3>
-                <p>Audit énergétique, installation photovoltaïque, monitoring de production, Power Purchase Agreement (PPA) et décarbonation de vos actifs.</p>
-                <Link href="/photovoltaique" className="service-card-link">En savoir plus →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#0d1a3a,#1a2a6a)' }}>🧹</div>
-              <div className="service-card-body">
-                <h3>Propreté &amp; Hygiène</h3>
-                <p>Entretien quotidien, propreté renforcée, nettoyage technique, vitrerie en hauteur. Protocoles RABC et certifications qualité.</p>
-                <Link href="/nettoyage" className="service-card-link">En savoir plus →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#1a0a3a,#3a1a6a)' }}>🛗</div>
-              <div className="service-card-body">
-                <h3>Ascenseurs &amp; Équipements Verticaux</h3>
-                <p>Maintenance préventive et curative des ascenseurs, escaliers mécaniques, portes automatiques, quais de chargement et systèmes de levage.</p>
-                <Link href="/contact" className="service-card-link">Nous contacter →</Link>
-              </div>
-            </div>
-            <div className="service-card">
-              <div className="service-card-img" style={{ background: 'linear-gradient(135deg,#0d1a2a,#1a3a4a)' }}>📡</div>
-              <div className="service-card-body">
-                <h3>GMAO &amp; Smart Building</h3>
-                <p>Pilotage GMAO, ticketing multicanal, capteurs IoT, Digital Twin, tableau de bord de performance FM et reporting exécutif mensuel.</p>
-                <Link href="/contact" className="service-card-link">Nous contacter →</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PILIERS FM */}
-      <section className="section section-dark">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow" style={{ color: 'var(--gold)' }}>Notre différenciation</div>
-            <h2 style={{ color: 'white' }}>Les 4 piliers de notre approche FM</h2>
-            <p style={{ color: 'rgba(255,255,255,.65)' }}>Une méthodologie propriétaire alignée sur ISO 41001 et les meilleures pratiques IFMA.</p>
-          </div>
-          <div className="cards-grid cards-grid-4">
-            {[
-              { num: '01', title: 'Audit Stratégique', text: 'Diagnostic complet de votre patrimoine : état technique, conformités réglementaires, performance énergétique et maturité FM. Livrable : Asset Register complet.' },
-              { num: '02', title: 'Plan FM Sur Mesure', text: 'Élaboration d\'un Master Plan FM sur 3 ans : plan de maintenance, budget prévisionnel TCO, plan de décarbonation et feuille de route Smart Building.' },
-              { num: '03', title: 'Déploiement & Pilotage', text: 'Mise en place des équipes dédiées, interfaçage GMAO, installation des capteurs IoT et démarrage contractuel avec SLA validés par vos équipes.' },
-              { num: '04', title: 'Amélioration Continue', text: 'Comités de pilotage trimestriels, revues de contrat annuelles, benchmark sectoriel, actualisation des SLA et plan d\'optimisation du TCO.' },
-            ].map((p) => (
-              <div key={p.num} className="pillar" style={{ background: 'rgba(255,255,255,.05)', borderColor: 'rgba(196,165,90,.2)' }}>
-                <div style={{ minWidth: 48, height: 48, background: 'linear-gradient(135deg,var(--gold),var(--gold-dark))', borderRadius: 'var(--radius)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', fontWeight: 900, color: 'var(--navy)', flexShrink: 0 }}>{p.num}</div>
-                <div>
-                  <h3 style={{ color: 'var(--white)' }}>{p.title}</h3>
-                  <p style={{ color: 'rgba(255,255,255,.6)' }}>{p.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CONTRATS */}
-      <section className="section section-light">
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow">Offres contractuelles</div>
-            <h2>Des contrats FM calibrés à votre portefeuille d&apos;actifs</h2>
-            <p>Du site unique au portefeuille multi-sites régional, GROUPE OG propose des structures contractuelles transparentes avec SLA garantis.</p>
-          </div>
-          <div className="cards-grid cards-grid-3">
-            <div className="feature-card" style={{ borderTop: '3px solid var(--stone)' }}>
-              <div className="feature-icon">🔑</div>
-              <h3>Maintenance Préventive</h3>
-              <p>Visites planifiées, rondes techniques, contrôles réglementaires, carnet de santé numérique. Budget maîtrisé, zéro surprise opérationnelle.</p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0 0', fontSize: '.88rem', color: 'var(--muted)' }}>
-                <li style={{ padding: '.3rem 0', borderBottom: '1px solid var(--border)' }}>✓ Planning annuel visites</li>
-                <li style={{ padding: '.3rem 0', borderBottom: '1px solid var(--border)' }}>✓ Contrôles réglementaires inclus</li>
-                <li style={{ padding: '.3rem 0' }}>✓ Rapport technique mensuel</li>
-              </ul>
-            </div>
-            <div className="feature-card" style={{ borderTop: '3px solid var(--gold)' }}>
-              <div className="feature-icon">⚡</div>
-              <h3>Toutes Maintenances</h3>
-              <p>Préventive + corrective illimitée + astreinte 24h/7j. Forfait mensuel fixe avec SLA contractuels et pénalités de retard. Idéal multi-sites.</p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0 0', fontSize: '.88rem', color: 'var(--muted)' }}>
-                <li style={{ padding: '.3rem 0', borderBottom: '1px solid var(--border)' }}>✓ Correctif illimité inclus</li>
-                <li style={{ padding: '.3rem 0', borderBottom: '1px solid var(--border)' }}>✓ Astreinte 24h/24 — 7j/7</li>
-                <li style={{ padding: '.3rem 0' }}>✓ SLA P1 : intervention &lt; 2h</li>
-              </ul>
-            </div>
-            <div className="feature-card" style={{ borderTop: '3px solid var(--navy)' }}>
-              <div className="feature-icon">🏢</div>
-              <h3>FM Intégral Grands Comptes</h3>
-              <p>Externalisation totale Hard FM + Soft FM. Directeur de site dédié, GMAO propriétaire, reporting COMEX, plan ESG et objectifs de décarbonation.</p>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '1rem 0 0', fontSize: '.88rem', color: 'var(--muted)' }}>
-                <li style={{ padding: '.3rem 0', borderBottom: '1px solid var(--border)' }}>✓ Directeur FM client dédié</li>
-                <li style={{ padding: '.3rem 0', borderBottom: '1px solid var(--border)' }}>✓ Dashboard COMEX temps réel</li>
-                <li style={{ padding: '.3rem 0' }}>✓ Objectifs ESG contractualisés</li>
-              </ul>
+            <div className="content-visual">
+              <Image src="/logo.png" alt="Groupe OG" width={320} height={200} style={{ objectFit: 'contain', position: 'relative', zIndex: 1, filter: 'drop-shadow(0 4px 24px rgba(0,0,0,.6))' }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTEURS */}
-      <section className="section">
+      <section className="section section-light">
         <div className="container">
           <div className="section-header">
             <div className="eyebrow">Secteurs d&apos;activité</div>
-            <h2>Expertise sectorielle reconnue</h2>
-            <p>Chaque secteur impose ses contraintes réglementaires, ses horaires et ses exigences de continuité d&apos;activité. Nous les maîtrisons.</p>
+            <h2>Nous intervenons dans tous les secteurs</h2>
+            <p>Du résidentiel aux grandes entreprises, du secteur public à l&apos;industrie, Groupe OG adapte ses solutions à chaque contexte.</p>
           </div>
           <div className="cards-grid cards-grid-4">
             {[
-              { icon: '🏢', title: 'Tertiaire & Sièges Sociaux', text: 'Immeubles de bureaux grade A, sièges sociaux, campus d\'entreprise. Workplace experience et conformité NF EN 15221.' },
-              { icon: '🏭', title: 'Industrie & Logistique', text: 'Sites classés ICPE, entrepôts logistiques, plateformes cross-dock. Maintenance robuste sans impact sur la production.' },
-              { icon: '🏥', title: 'Santé & Médico-social', text: 'Établissements de santé, cliniques, EHPAD. Protocoles infection control, continuité de service critique 24h/24.' },
-              { icon: '🎓', title: 'Éducation & Recherche', text: 'Universités, grandes écoles, centres R&D. Gestion des contraintes calendaires et des espaces scientifiques spécialisés.' },
-              { icon: '🛍️', title: 'Commerce & Retail', text: 'Centres commerciaux, enseignes, flagship stores. Maintenance discrète hors heures d\'ouverture, réactivité maximale.' },
-              { icon: '🏨', title: 'Hospitality & Tourisme', text: 'Hôtels, résidences de services, complexes de loisirs. Exigences esthétiques et de continuité propres à l\'accueil du public.' },
-              { icon: '🏛️', title: 'Secteur Public & Collectivités', text: 'Mairies, collectivités, établissements publics. Maîtrise des marchés publics, traçabilité et reporting de service public.' },
-              { icon: '📦', title: 'Foncières & Investisseurs', text: 'SCPI, foncières cotées, family offices. Asset management technique, valorisation du patrimoine et due diligence pré-acquisition.' },
-            ].map((s) => (
-              <div className="feature-card" key={s.title}>
-                <div className="feature-icon">{s.icon}</div>
+              { icon: '🏢', title: 'Tertiaire & Bureaux', text: 'Immeubles de bureaux, sièges sociaux, campus d\'entreprise' },
+              { icon: '🏭', title: 'Industrie & Logistique', text: 'Entrepôts, sites de production, plateformes logistiques' },
+              { icon: '🏥', title: 'Santé & Médico-social', text: 'Cliniques, EHPAD, centres médicaux, établissements de soins' },
+              { icon: '🏫', title: 'Éducation & Culture', text: 'Écoles, universités, musées, bibliothèques' },
+              { icon: '🛍️', title: 'Commerce & Retail', text: 'Centres commerciaux, boutiques, galeries, restaurants' },
+              { icon: '🏨', title: 'Hôtellerie & Tourisme', text: 'Hôtels, résidences, complexes de loisirs' },
+              { icon: '🏛️', title: 'Secteur Public', text: 'Mairies, collectivités, établissements publics' },
+              { icon: '🏠', title: 'Résidentiel', text: 'Particuliers, copropriétés, résidences, promoteurs' },
+            ].map(s => (
+              <div className="sector-card" key={s.title}>
+                <span className="sector-icon">{s.icon}</span>
                 <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="section section-dark">
+        <div className="container">
+          <div className="section-header">
+            <div className="eyebrow" style={{ color: 'rgba(232,98,10,.9)' }}>Notre méthode</div>
+            <h2 style={{ color: 'var(--white)' }}>Un accompagnement simple et efficace</h2>
+            <p style={{ color: 'rgba(255,255,255,.55)' }}>De la première prise de contact jusqu&apos;à la livraison, nous vous accompagnons à chaque étape.</p>
+          </div>
+          <div className="steps-grid">
+            {[
+              { num: '01', title: 'Prise de contact', text: 'Échangez avec nos experts pour définir vos besoins et votre projet.' },
+              { num: '02', title: 'Devis gratuit', text: 'Nous établissons un devis détaillé et transparent sous 48h, sans engagement.' },
+              { num: '03', title: 'Réalisation', text: 'Nos équipes qualifiées interviennent avec rigueur et dans les délais convenus.' },
+              { num: '04', title: 'Suivi & garantie', text: 'Réception des travaux, garanties contractuelles et support après-mission.' },
+            ].map(s => (
+              <div className="step" key={s.num}>
+                <div className="step-num">{s.num}</div>
+                <h4 style={{ color: 'var(--white)' }}>{s.title}</h4>
                 <p>{s.text}</p>
               </div>
             ))}
@@ -336,32 +280,32 @@ export default function Home() {
       <section className="section section-light">
         <div className="container">
           <div className="section-header">
-            <div className="eyebrow">Témoignages clients</div>
-            <h2>Ils nous confient leur patrimoine</h2>
+            <div className="eyebrow">Ils nous font confiance</div>
+            <h2>Témoignages clients</h2>
           </div>
           <div className="cards-grid cards-grid-3">
             <div className="testimonial-card">
               <div className="testimonial-stars">★★★★★</div>
-              <p className="testimonial-quote">&ldquo;GROUPE OG pilote l&apos;intégralité de notre parc de 18 bâtiments sur la région PACA. La qualité du reporting exécutif mensuel et la transparence sur les KPIs sont au niveau des grandes ESN FM internationales.&rdquo;</p>
+              <p className="testimonial-quote">&ldquo;Groupe OG a géré de A à Z la rénovation complète de nos locaux. Travaux dans les délais, budget respecté, équipes sérieuses. Je recommande sans hésiter.&rdquo;</p>
               <div className="testimonial-author">
-                <div className="author-avatar">PL</div>
-                <div className="author-info"><h4>Pierre Lambert</h4><span>Directeur Immobilier &amp; Facilities — Groupe Industriel coté</span></div>
+                <div className="author-avatar">ML</div>
+                <div className="author-info"><h4>Marc Lecomte</h4><span>Directeur Général — PME industrielle, Lyon</span></div>
               </div>
             </div>
             <div className="testimonial-card">
               <div className="testimonial-stars">★★★★★</div>
-              <p className="testimonial-quote">&ldquo;L&apos;externalisation FM à GROUPE OG nous a permis de réduire de 35% nos charges d&apos;exploitation en 24 mois. Leur approche TCO sur 3 ans est particulièrement convaincante pour notre COMEX.&rdquo;</p>
+              <p className="testimonial-quote">&ldquo;Nous faisons appel à Groupe OG pour l&apos;entretien de nos 12 agences. Réactivité exemplaire, propreté irréprochable et tarifs compétitifs.&rdquo;</p>
               <div className="testimonial-author">
-                <div className="author-avatar">SC</div>
-                <div className="author-info"><h4>Sophie Chabert</h4><span>DAF &amp; Directrice du Patrimoine — Clinique privée multi-sites</span></div>
+                <div className="author-avatar">SB</div>
+                <div className="author-info"><h4>Sophie Bernard</h4><span>Responsable Facilities — Réseau bancaire national</span></div>
               </div>
             </div>
             <div className="testimonial-card">
               <div className="testimonial-stars">★★★★★</div>
-              <p className="testimonial-quote">&ldquo;Le déploiement du plan de décarbonation et des panneaux photovoltaïques coordonné par GROUPE OG a réduit notre empreinte carbone de 42%. Un partenaire incontournable pour notre stratégie ESG.&rdquo;</p>
+              <p className="testimonial-quote">&ldquo;La gestion locative par Groupe OG nous a permis d&apos;optimiser nos revenus et de réduire les vacances locatives. Un vrai professionnel de l&apos;immobilier.&rdquo;</p>
               <div className="testimonial-author">
-                <div className="author-avatar">XM</div>
-                <div className="author-info"><h4>Xavier Moreau</h4><span>Directeur RSE — Foncière régionale</span></div>
+                <div className="author-avatar">PD</div>
+                <div className="author-info"><h4>Pierre Dubois</h4><span>Investisseur immobilier — Paris &amp; Côte d&apos;Azur</span></div>
               </div>
             </div>
           </div>
@@ -371,12 +315,12 @@ export default function Home() {
       {/* CTA FINAL */}
       <section className="section section-dark">
         <div className="container">
-          <div className="cta-banner" style={{ background: 'transparent', border: '1px solid rgba(196,165,90,.3)', padding: '4rem' }}>
-            <div className="eyebrow" style={{ color: 'var(--gold)', justifyContent: 'center' }}>Passez à l&apos;étape suivante</div>
-            <h2 style={{ color: 'white', fontSize: '2.4rem' }}>Transformez la gestion de votre patrimoine en avantage compétitif</h2>
-            <p style={{ color: 'rgba(255,255,255,.7)', maxWidth: 600, margin: '0 auto 2.5rem' }}>Nos experts FM vous proposent un audit stratégique gratuit de votre patrimoine. Analyse technique, benchmark sectoriel et proposition de valeur personnalisée sous 48h.</p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/contact" className="btn btn-gold">Demander l&apos;audit stratégique gratuit →</Link>
+          <div className="cta-banner">
+            <div className="eyebrow" style={{ color: 'rgba(232,98,10,.9)', justifyContent: 'center' }}>Passez à l&apos;action</div>
+            <h2>Votre projet mérite les meilleurs experts</h2>
+            <p>Contactez-nous dès aujourd&apos;hui pour un devis gratuit. Nos équipes vous répondent sous 24h.</p>
+            <div className="cta-banner-btns">
+              <Link href="/contact" className="btn btn-orange">Demander un devis gratuit →</Link>
               <a href="tel:+33769252296" className="btn btn-outline-white">📞 07 69 25 22 96</a>
             </div>
           </div>
